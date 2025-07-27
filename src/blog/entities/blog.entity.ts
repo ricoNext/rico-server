@@ -48,5 +48,5 @@ export class Blog {
   @OneToMany(() => BlogTagRelation, (relation) => relation.blog, {
     cascade: true,
   })
-  tagRelations: BlogTagRelation[]; // 关联关系集合
+  tagRelations?: BlogTagRelation[]; // 关联关系集合
 }

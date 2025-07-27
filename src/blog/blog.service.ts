@@ -19,9 +19,23 @@ export class BlogService {
   ) {}
 
   findAll(): Promise<Blog[]> {
-    return this.blogRepository.find({
-      relations: ['tagRelations', 'tagRelations.tag'],
-    });
+    return this.blogRepository
+      .find({
+        relations: ['tagRelations', 'tagRelations.tag'],
+      })
+      .then((blogs) => {
+        return blogs.map((blog) => {
+          const tags = blog?.tagRelations?.map((relation) => relation.tag);
+
+          // 删除关联关系数据，只保留必要的tag信息
+          const { tagRelations, ...blogWithoutRelations } = blog;
+
+          return {
+            ...blogWithoutRelations,
+            tags,
+          };
+        });
+      });
   }
 
   findOne(id: number): Promise<Blog | null> {
