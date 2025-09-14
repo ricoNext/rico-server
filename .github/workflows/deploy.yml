@@ -14,9 +14,8 @@ jobs:
       
       - name: Login to Aliyun ACR
         run: |
-          echo "${{ secrets.ACR_PASSWORD }}" | docker login --username "${{ secrets.ACR_USERNAME }}" --password-stdin <ACR_REGISTRY_URL>
+          echo ${{ secrets.ACR_PASSWORD }} | docker login ${{secrets.ACR_REGISTRY_URL}} -u ${{ secrets.ACR_USERNAME }} --password-stdin
 
-      
       - name: Push to ACR
         run: |
           docker tag rico-server ${{secrets.ACR_REGISTRY_URL}}/${{ secrets.ACR_NAMESPACE }}/rico-server:latest
