@@ -21,8 +21,8 @@ jobs:
       
       - name: Push to ACR
         run: |
-          docker tag rico-server registry.cn-shenzhen.aliyuncs.com/${{ secrets.ACR_NAMESPACE }}/rico-server:latest
-          docker push registry.cn-shenzhen.aliyuncs.com/${{ secrets.ACR_NAMESPACE }}/rico-server:latest
+          docker tag rico-server crpi-556fy8jqvkll5q5y.cn-shenzhen.personal.cr.aliyuncs.com/${{ secrets.ACR_NAMESPACE }}/rico-server:latest
+          docker push crpi-556fy8jqvkll5q5y.cn-shenzhen.personal.cr.aliyuncs.com/${{ secrets.ACR_NAMESPACE }}/rico-server:latest
       
       - name: Deploy to server
         uses: appleboy/ssh-action@master
@@ -31,7 +31,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            docker pull registry.cn-shenzhen.aliyuncs.com/${{ secrets.ACR_NAMESPACE }}/rico-server:latest
+            docker pull crpi-556fy8jqvkll5q5y.cn-shenzhen.personal.cr.aliyuncs.com/${{ secrets.ACR_NAMESPACE }}/rico-server:latest
             docker stop rico-server || true
             docker rm rico-server || true
-            docker run -d --name rico-server -p 3000:3000 --env-file /root/rico-server.env registry.cn-shenzhen.aliyuncs.com/${{ secrets.ACR_NAMESPACE }}/rico-server:latest
+            docker run -d --name rico-server -p 3000:3000 --env-file /root/rico-server.env crpi-556fy8jqvkll5q5y.cn-shenzhen.personal.cr.aliyuncs.com/${{ secrets.ACR_NAMESPACE }}/rico-server:latest
