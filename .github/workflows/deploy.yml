@@ -28,6 +28,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
+            echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_REGISTRY_URL }} -u ${{ secrets.ACR_USERNAME }} --password-stdin
             docker pull ${{secrets.ACR_REGISTRY_URL}}/${{ secrets.ACR_NAMESPACE }}/rico-server:latest
             docker stop rico-server || true
             docker rm rico-server || true
