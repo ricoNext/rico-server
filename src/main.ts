@@ -5,6 +5,7 @@ import { AppModule } from "./app.module";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.setGlobalPrefix("api");
 
   const config = new DocumentBuilder()
     .setTitle("Rico Server")
@@ -15,7 +16,7 @@ async function bootstrap() {
 
   const documentFactory = () => SwaggerModule.createDocument(app, config);
 
-  SwaggerModule.setup("api", app, documentFactory);
+  SwaggerModule.setup("swagger", app, documentFactory);
   app.use(cookieParser());
 
   await app.listen(process.env.PORT ?? 3000);
