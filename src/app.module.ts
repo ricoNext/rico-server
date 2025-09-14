@@ -12,7 +12,7 @@ import { UserModule } from "./modules/user/user.module";
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: [".env.local", ".env"],
+      envFilePath: process.env.NODE_ENV === "production" ? [] : [".env.local"],
       isGlobal: true,
       load: [databaseConfig],
     }),

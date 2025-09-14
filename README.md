@@ -1,2 +1,1 @@
 # rico-server
-
