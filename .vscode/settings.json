@@ -1,21 +1,55 @@
 {
-	"editor.formatOnSave": true,
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit",
-		"source.fixAll.stylelint": "explicit"
-	},
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"prettier.requireConfig": true,
-	"files.associations": {
-		"*.scss": "tailwindcss"
-	},
-	"search.exclude": {
-		"node_modules": true,
-		"dist": true,
-		"admin-uat-*": true,
-		"app-service-*": true,
-		"app-entry-*": true
-	},
-	"cSpell.words": ["ahooks", "Cascader", "headimg", "misdata", "Popconfirm", "realname"],
-	"oxc.enable": true
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "explicit",
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "files.associations": {
+    "*.scss": "tailwindcss"
+  },
+  "search.exclude": {
+    "node_modules": true,
+    "dist": true,
+    "admin-uat-*": true,
+    "app-service-*": true,
+    "app-entry-*": true
+  },
+  "cSpell.words": [
+    "ahooks",
+    "Cascader",
+    "headimg",
+    "misdata",
+    "Popconfirm",
+    "realname"
+  ],
+  "oxc.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnPaste": true,
+  "emmet.showExpandedAbbreviation": "never"
 }

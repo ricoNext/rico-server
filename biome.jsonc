@@ -1,0 +1,32 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
+  "extends": ["ultracite"],
+  "formatter": {
+    "lineWidth": 120
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "noMagicNumbers": "off",
+        "useTemplate": "off",
+        "noEnum": "off",
+        "noParameterProperties": "off",
+        "useImportType": "off"
+      },
+      "correctness": {
+        "useParseIntRadix": "off"
+      },
+      "performance": {
+        "noNamespaceImport": "off"
+      },
+      "complexity": {
+        "noStaticOnlyClass": "off"
+      }
+    }
+  },
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
+  }
+}
